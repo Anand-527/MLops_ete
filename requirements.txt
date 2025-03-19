@@ -1,3 +1,9 @@
 pandas==2.2.3
 numpy==2.2.3
 scikit-learn==1.6.1
+PyYAML==6.0.2
+hyperopt==0.2.7
+
+#eda
+#seaborn
+#smatplotlibs 

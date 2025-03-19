@@ -1,0 +1,87 @@
+target: Outcome
+
+exp1: # experiment 1
+  prepro: # preprocessing
+    prepro1
+  data_split: # data split
+    data_split1
+  model:
+    RandomForest
+
+data_split1:
+  test_size: 0.2
+  random_state: 42
+
+prepro1: # preprocessing 1
+  cat_cols: # categorical columns
+  - Ethnicity
+  - ChestPainType
+  - ECGResults
+  - Thalassemia
+  - Residence
+  - EmploymentStatus
+  - MaritalStatus
+
+  num_cols: # numerical columns
+  - Age
+  - Gender
+  - Cholesterol
+  - BloodPressure
+  - HeartRate
+  - BMI
+  - Smoker
+  - Diabetes
+  - Hypertension
+  - FamilyHistory
+  - PhysicalActivity
+  - AlcoholConsumption
+  - Diet
+  - StressLevel
+  - Income
+  - EducationLevel
+  - Medication
+  - MaxHeartRate
+  - ST_Depression
+  - ExerciseInducedAngina
+  - Slope
+  - NumberOfMajorVessels
+  - PreviousHeartAttack
+  - StrokeHistory
+
+  cat_map: # categorical mapping
+    Diet:
+      Healthy: 1
+      Moderate: 0.5
+      Unhealthy: 0
+    EducationLevel:
+      College: 0.5
+      High School: 0
+      Postgraduate: 1
+    ExerciseInducedAngina:
+      'No': 0
+      'Yes': 1
+    Gender:
+      Female: 1
+      Male: 0
+    Medication:
+      'No': 0
+      'Yes': 1
+    Outcome:
+      Heart Attack: 1
+      No Heart Attack: 0
+    Slope:
+      Downsloping: 1
+      Flat: 0.5
+      Upsloping: 0
+
+  
+
+exp:
+  RandomForest: 
+    hyperparameters:
+      n_estimators: [5,500,15]
+      criteria: ['gini', 'entropy', 'log_loss']
+      max_depth: [1,125,10]
+      min_samples_split: [2,100,15]
+      max_features: [5,250,15]
+      #random_state: 42
